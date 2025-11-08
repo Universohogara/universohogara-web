@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Hogara - Instrucciones AWS Amplify</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        .checkmark {
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        .section h2 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+        }
+        .steps li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 40px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning strong {
+            color: #f59e0b;
+        }
+        .highlight {
+            background: #dbeafe;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .option-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            transition: all 0.3s;
+        }
+        .option-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        .recommended {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌌 Universo Hogara</h1>
+        <p class="subtitle">Proyecto preparado para AWS Amplify</p>
+        
+        <div class="status">
+            <div class="status-item">
+                <span class="checkmark">✓</span>
+                <span>Repositorio Git inicializado con 866 archivos</span>
+            </div>
+            <div class="status-item">
+                <span class="checkmark">✓</span>
+                <span>Imagen "fondo web principal.png" incluida (3.7 MB)</span>
+            </div>
+            <div class="status-item">
+                <span class="checkmark">✓</span>
+                <span>Código completo de universohogara.com</span>
+            </div>
+            <div class="status-item">
+                <span class="checkmark">✓</span>
+                <span>Configuración amplify.yml preparada</span>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>📍 Ubicación del proyecto:</strong> <code>/home/ubuntu/aws-amplify-export</code>
+        </div>
+
+        <div class="option-card recommended">
+            <h2>🚀 Opción 1: GitHub + AWS Amplify <span class="badge">RECOMENDADO</span></h2>
+            <p style="margin: 10px 0;">El método más confiable y profesional. Toma solo 5 minutos.</p>
+        </div>
+
+        <div class="section">
+            <h2>Paso 1: Crear Repositorio en GitHub</h2>
+            <ol class="steps">
+                <li>Ve a <strong>https://github.com/new</strong></li>
+                <li>Nombre del repositorio: <span class="highlight">universo-hogara</span></li>
+                <li><strong>NO marques</strong> "Initialize with README"</li>
+                <li>Haz clic en <strong>"Create repository"</strong></li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Paso 2: Subir el Código a GitHub</h2>
+            <p>Copia y pega estos comandos en tu terminal:</p>
+            <div class="code-block">cd /home/ubuntu/aws-amplify-export
+git remote add origin https://github.com/TU-USUARIO/universo-hogara.git
+git branch -M main
+git push -u origin main</div>
+            <p style="margin-top: 10px; color: #666; font-size: 14px;">
+                ⚠️ Reemplaza <strong>TU-USUARIO</strong> con tu nombre de usuario de GitHub
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Paso 3: Configurar AWS Amplify</h2>
+            <ol class="steps">
+                <li>Ve a <strong>https://console.aws.amazon.com/amplify/</strong></li>
+                <li>Clic en <strong>"New app"</strong> → <strong>"Host web app"</strong></li>
+                <li>Selecciona <strong>"GitHub"</strong></li>
+                <li>Autoriza AWS Amplify a acceder a GitHub</li>
+                <li>Selecciona el repositorio <span class="highlight">universo-hogara</span></li>
+                <li>Branch: <span class="highlight">main</span></li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Paso 4: Variables de Entorno</h2>
+            <p>En AWS Amplify Console, agrega estas variables:</p>
+            <div class="code-block">DATABASE_URL=postgresql://usuario:password@host:5432/database
+NEXTAUTH_SECRET=(genera con: openssl rand -base64 32)
+NEXTAUTH_URL=https://tu-app.amplifyapp.com
+AWS_BUCKET_NAME=tu-bucket
+AWS_FOLDER_PREFIX=uploads/
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...</div>
+        </div>
+
+        <div class="section">
+            <h2>Paso 5: Desplegar</h2>
+            <ol class="steps">
+                <li>Clic en <strong>"Save and deploy"</strong></li>
+                <li>Espera 5-10 minutos mientras AWS construye tu app</li>
+                <li>¡Listo! Tu aplicación estará en línea</li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            <strong>💡 Nota importante:</strong> AWS Amplify detectará automáticamente el archivo 
+            <code>amplify.yml</code> y configurará el build correctamente.
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px solid #e5e7eb;">
+
+        <div class="option-card">
+            <h2>📦 Opción 2: Descargar ZIP (alternativa)</h2>
+            <p style="margin: 10px 0;">Si prefieres descargar el proyecto como archivo ZIP:</p>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li>Archivo: <code>/home/ubuntu/Downloads/universo-hogara-amplify.zip</code></li>
+                <li>Tamaño: 188 MB</li>
+                <li>⚠️ Puede dar errores por el tamaño grande</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e5e7eb; text-align: center; color: #666;">
+            <p><strong>Fecha de preparación:</strong> 8 de noviembre de 2025</p>
+            <p style="margin-top: 10px;">Para soporte adicional, revisa los logs en AWS Amplify Console</p>
+        </div>
+    </div>
+</body>
+</html>

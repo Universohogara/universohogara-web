@@ -1,0 +1,90 @@
+
+=================================================================
+     🎯 PASOS RÁPIDOS PARA SUBIR A GITHUB Y AWS AMPLIFY
+=================================================================
+
+📦 MÉTODO RECOMENDADO (Sin descargar nada)
+-------------------------------------------
+
+1. Accede al botón "Files" en la parte superior derecha
+
+2. Navega a: aws-amplify-export
+
+3. Descarga estas carpetas INDIVIDUALES (una por una):
+   ✅ app/
+   ✅ components/
+   ✅ lib/
+   ✅ public/
+   ✅ prisma/
+   ✅ scripts/
+   
+4. Descarga estos ARCHIVOS:
+   ✅ amplify.yml
+   ✅ package.json
+   ✅ next.config.js
+   ✅ tailwind.config.ts
+   ✅ tsconfig.json
+   ✅ postcss.config.js
+   ✅ INSTRUCCIONES.html (léelo primero!)
+
+5. Crea un repositorio en GitHub:
+   - Ve a: https://github.com/new
+   - Nombre: universo-hogara
+   - Privado o Público
+
+6. Sube los archivos:
+   - Usa "Upload files" en GitHub
+   - Arrastra todas las carpetas y archivos
+   - Commit!
+
+7. Conecta con AWS Amplify:
+   - Inicia sesión en AWS Amplify
+   - "New app" > "Host web app"
+   - Selecciona "GitHub"
+   - Elige tu repositorio "universo-hogara"
+   - Build settings: Detectará automáticamente Next.js
+   - Deploy!
+
+=================================================================
+
+📋 CONTENIDO DEL PROYECTO
+-------------------------------------------
+✅ Total: 1,846 archivos
+✅ Tu imagen: "fondo web principal.png" (3.7 MB)
+✅ Código completo de universohogara.com
+✅ Configuración AWS: amplify.yml
+✅ Base de datos: Prisma schema
+✅ Todos los componentes React
+✅ Todos los logos y assets
+
+=================================================================
+
+🎨 VERIFICACIÓN DE TU IMAGEN DE FONDO
+-------------------------------------------
+Ruta: public/images/fondo web principal.png
+Tamaño: 3.7 MB
+Estado: ✅ Incluida y verificada
+
+=================================================================
+
+💡 TIPS IMPORTANTES
+-------------------------------------------
+1. NO intentes descargar todo como ZIP (da error 404)
+2. Descarga carpetas INDIVIDUALES (más pequeñas)
+3. Si una carpeta es muy grande, descarga sus subcarpetas
+4. El botón "Files" es tu mejor amigo
+5. GitHub puede recibir uploads directos sin problemas
+
+=================================================================
+
+❓ ¿NECESITAS AYUDA?
+-------------------------------------------
+Pregúntame en el chat si:
+- No encuentras el botón "Files"
+- Tienes problemas subiendo a GitHub
+- AWS Amplify no detecta la configuración
+- Cualquier otra duda
+
+¡Estoy aquí para ayudarte! 💬
+
+=================================================================

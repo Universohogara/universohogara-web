@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+     viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <style>
+      @keyframes kenBreathing {
+        0%, 100% { 
+          transform: scale(1.0);
+          opacity: 1.0;
+        }
+        50% { 
+          transform: scale(1.015);
+          opacity: 0.98;
+        }
+      }
+      
+      @keyframes kenGlow {
+        0%, 100% { 
+          opacity: 0.3;
+          filter: blur(15px);
+        }
+        50% { 
+          opacity: 0.5;
+          filter: blur(18px);
+        }
+      }
+      
+      @keyframes kenAura {
+        0% { 
+          transform: scale(1.0);
+          opacity: 0.4;
+        }
+        50% { 
+          transform: scale(1.1);
+          opacity: 0.2;
+        }
+        100% { 
+          transform: scale(1.0);
+          opacity: 0.4;
+        }
+      }
+      
+      .ken-character {
+        animation: kenBreathing 4s ease-in-out infinite;
+        transform-origin: center center;
+      }
+      
+      .ken-glow {
+        animation: kenGlow 4s ease-in-out infinite;
+      }
+      
+      .ken-aura {
+        animation: kenAura 3s ease-in-out infinite;
+      }
+    </style>
+    
+    <!-- Radial gradient for magical aura -->
+    <radialGradient id="kenAuraGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:rgb(255,200,100);stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:rgb(255,180,80);stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:rgb(255,160,60);stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Filter for glow effect -->
+    <filter id="kenGlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 0.8 0 0 0  0 0 0.4 0 0  0 0 0 1 0"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer magical aura (pulsing) -->
+  <circle class="ken-aura" cx="512" cy="512" r="400" 
+          fill="url(#kenAuraGradient)" opacity="0.4"/>
+  
+  <!-- Glow layer -->
+  <circle class="ken-glow" cx="512" cy="512" r="350" 
+          fill="rgb(255,200,100)" opacity="0.3" filter="url(#kenGlowFilter)"/>
+  
+  <!-- Main character image -->
+  <image class="ken-character" 
+         xlink:href="./ken_base_01.png" 
+         x="0" y="0" width="1024" height="1024"
+         preserveAspectRatio="xMidYMid meet"/>
+  
+  <!-- Sparkle particles (optional decorative elements) -->
+  <g class="ken-aura">
+    <circle cx="300" cy="300" r="3" fill="rgb(255,220,150)" opacity="0.8"/>
+    <circle cx="700" cy="350" r="2" fill="rgb(255,200,120)" opacity="0.7"/>
+    <circle cx="350" cy="650" r="2.5" fill="rgb(255,210,130)" opacity="0.8"/>
+    <circle cx="650" cy="700" r="2" fill="rgb(255,190,110)" opacity="0.7"/>
+  </g>
+</svg>

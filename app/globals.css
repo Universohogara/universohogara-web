@@ -1,0 +1,649 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import '../styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: var(--hogara-cream);
+    color: var(--hogara-gray);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+  }
+  
+  /* HEADINGS CON ESTÉTICA HOGARA */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-medium);
+    line-height: 1.2;
+    color: var(--hogara-gray);
+  }
+  
+  h1 {
+    font-size: var(--text-4xl);
+    @apply mb-6;
+  }
+  
+  h2 {
+    font-size: var(--text-3xl);
+    @apply mb-5;
+  }
+  
+  h3 {
+    font-size: var(--text-2xl);
+    @apply mb-4;
+  }
+  
+  h4 {
+    font-size: var(--text-xl);
+    @apply mb-3;
+  }
+  
+  h5 {
+    font-size: var(--text-lg);
+    @apply mb-2;
+  }
+  
+  h6 {
+    font-size: var(--text-base);
+    @apply mb-2;
+  }
+  
+  /* PÁRRAFOS Y TEXTO */
+  p {
+    @apply mb-4 leading-relaxed;
+    color: var(--hogara-gray);
+  }
+  
+  /* LINKS CON ESTILO HOGARA */
+  a {
+    color: var(--hogara-gray);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+  
+  a:hover {
+    color: var(--hogara-gold);
+  }
+  
+  /* SELECCIÓN DE TEXTO */
+  ::selection {
+    background-color: var(--hogara-pink);
+    color: var(--hogara-gray);
+  }
+  
+  ::-moz-selection {
+    background-color: var(--hogara-pink);
+    color: var(--hogara-gray);
+  }
+  
+  /* SCROLLBAR PERSONALIZADA */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--hogara-cream);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--hogara-pink);
+    border-radius: var(--radius-lg);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--hogara-turquoise);
+  }
+  
+  /* FOCUS STYLES */
+  *:focus {
+    outline: 2px solid var(--hogara-gold);
+    outline-offset: 2px;
+    @apply rounded-sm;
+  }
+  
+  /* FORM ELEMENTS */
+  input, textarea, select {
+    @apply rounded-lg border border-gray-200 px-4 py-2;
+    background-color: white;
+    color: var(--hogara-gray);
+    transition: all var(--transition-fast);
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--hogara-pink);
+    box-shadow: var(--shadow-pink);
+  }
+}
+
+@layer components {
+  /* CONTENEDOR PRINCIPAL */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: var(--container-xl);
+  }
+  
+  /* BOTONES BASE HOGARA */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 font-medium transition-all duration-300;
+    font-size: var(--text-sm);
+    line-height: 1;
+  }
+  
+  .btn-primary {
+    @apply btn;
+    background: var(--hogara-pink);
+    color: var(--hogara-gray);
+    box-shadow: var(--shadow-pink);
+  }
+  
+  .btn-primary:hover {
+    background: var(--hogara-turquoise);
+    box-shadow: var(--shadow-turquoise);
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    @apply btn;
+    background: var(--hogara-turquoise);
+    color: var(--hogara-gray);
+    box-shadow: var(--shadow-turquoise);
+  }
+  
+  .btn-secondary:hover {
+    background: var(--hogara-pink);
+    box-shadow: var(--shadow-pink);
+    transform: translateY(-1px);
+  }
+  
+  .btn-gold {
+    @apply btn;
+    background: var(--hogara-gold);
+    color: white;
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .btn-gold:hover {
+    background: var(--hogara-gold-light);
+    color: var(--hogara-gray);
+    transform: translateY(-1px);
+  }
+  
+  .btn-outline {
+    @apply btn border-2;
+    background: transparent;
+    border-color: var(--hogara-pink);
+    color: var(--hogara-gray);
+  }
+  
+  .btn-outline:hover {
+    background: var(--hogara-pink);
+    transform: translateY(-1px);
+  }
+  
+  /* CARDS HOGARA */
+  .card {
+    @apply rounded-xl p-6;
+    background: white;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-100);
+    transition: all var(--transition-normal);
+  }
+  
+  .card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  .card-pink {
+    @apply card;
+    background: var(--hogara-pink);
+    box-shadow: var(--shadow-pink);
+  }
+  
+  .card-turquoise {
+    @apply card;
+    background: var(--hogara-turquoise);
+    box-shadow: var(--shadow-turquoise);
+  }
+  
+  .card-cream {
+    @apply card;
+    background: var(--hogara-cream);
+  }
+  
+  /* EFECTOS ESPECIALES HOGARA */
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: shimmer var(--shimmer-duration) infinite;
+  }
+  
+  .sparkle-effect {
+    position: relative;
+  }
+  
+  .sparkle-effect::before {
+    content: '✨';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    animation: sparkle var(--sparkle-duration) infinite;
+    pointer-events: none;
+  }
+  
+  .glow-effect {
+    animation: glow 2s infinite ease-in-out;
+  }
+  
+  /* MAGIC TEXT - FRASE PRINCIPAL HOGARA (Versión mejorada con mayor legibilidad) */
+  .magic-text-hogara {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--text-3xl);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    background: linear-gradient(
+      90deg,
+      #6E6E6E 0%,
+      #D4AF37 15%,
+      #F7DCEB 30%,
+      #CFEFF3 45%,
+      #FFF7F0 60%,
+      #F7DCEB 75%,
+      #D4AF37 85%,
+      #6E6E6E 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300% 100%;
+    animation: magic-shimmer 8s ease-in-out infinite;
+    /* Sombreado mejorado para legibilidad óptima */
+    filter: 
+      drop-shadow(0 2px 4px rgba(255, 255, 255, 0.9))
+      drop-shadow(0 3px 6px rgba(110, 110, 110, 0.3))
+      drop-shadow(0 1px 2px rgba(212, 175, 55, 0.2));
+  }
+  
+  @keyframes magic-shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .magic-text-hogara {
+      font-size: var(--text-4xl);
+      letter-spacing: 0.03em;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .magic-text-hogara {
+      font-size: var(--text-5xl);
+      letter-spacing: 0.04em;
+    }
+  }
+  
+  /* MAGIC TEXT - VERSION ORIGINAL (mantenida para compatibilidad) */
+  .magic-text {
+    font-family: var(--font-heading);
+    font-weight: var(--font-medium);
+    font-size: var(--text-3xl);
+    background: linear-gradient(
+      45deg,
+      var(--hogara-gray) 0%,
+      var(--hogara-gold) 25%,
+      var(--hogara-gray) 50%,
+      var(--hogara-gold) 75%,
+      var(--hogara-gray) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  @media (min-width: 768px) {
+    .magic-text {
+      font-size: var(--text-4xl);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .magic-text {
+      font-size: var(--text-5xl);
+    }
+  }
+  
+  /* GRADIENTES DE FONDO SECCIONES */
+  .section-pink {
+    background: linear-gradient(135deg, var(--hogara-cream) 0%, var(--hogara-pink) 100%);
+  }
+  
+  .section-turquoise {
+    background: linear-gradient(135deg, var(--hogara-cream) 0%, var(--hogara-turquoise) 100%);
+  }
+  
+  .section-gradient {
+    background: linear-gradient(135deg, var(--hogara-pink) 0%, var(--hogara-cream) 50%, var(--hogara-turquoise) 100%);
+  }
+  
+  /* PRODUCT GRID */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    padding: var(--space-8) 0;
+  }
+  
+  .product-card {
+    @apply card;
+    transition: all var(--transition-normal);
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* TESTIMONIALS LAYOUT */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+  
+  /* FORM STYLING */
+  .form-group {
+    @apply mb-6;
+  }
+  
+  .form-label {
+    @apply block mb-2 font-medium;
+    color: var(--hogara-gray);
+    font-size: var(--text-sm);
+  }
+  
+  .form-input {
+    @apply w-full rounded-lg border px-4 py-3;
+    border-color: var(--gray-200);
+    background-color: white;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+  }
+  
+  .form-input:focus {
+    border-color: var(--hogara-pink);
+    box-shadow: var(--shadow-pink);
+  }
+  
+  .form-textarea {
+    @apply form-input resize-none;
+    min-height: 120px;
+  }
+}
+
+@layer utilities {
+  /* SPACING UTILITIES */
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+  
+  .content-padding {
+    @apply py-12 lg:py-16;
+  }
+  
+  /* TEXT UTILITIES */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* ANIMATION UTILITIES */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+  
+  /* HOVER EFFECTS */
+  .hover-lift {
+    transition: transform var(--transition-fast);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+  
+  .hover-scale {
+    transition: transform var(--transition-fast);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+  
+  /* RESPONSIVE UTILITIES */
+  .mobile-only {
+    @apply block sm:hidden;
+  }
+  
+  .desktop-only {
+    @apply hidden sm:block;
+  }
+}
+
+/* ANIMATIONS KEYFRAMES */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* PRINT STYLES */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}/* Estilos para scroll suave en biblioteca de stickers */
+.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-smooth::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scroll-smooth::-webkit-scrollbar-track {
+  background: #F5F1E8;
+  border-radius: 10px;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb {
+  background: #B8956A;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb:hover {
+  background: #9A7A54;
+}
+
+/* Estilos para scroll suave en biblioteca de stickers */
+.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-smooth::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scroll-smooth::-webkit-scrollbar-track {
+  background: #F5F1E8;
+  border-radius: 10px;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb {
+  background: #B8956A;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb:hover {
+  background: #9A7A54;
+}
+
+/* Mejora de renderizado de imágenes */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}

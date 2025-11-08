@@ -1,0 +1,61 @@
+
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { DiaryTab } from '@/lib/diary-types';
+
+interface DiaryTabsProps {
+  tabs: DiaryTab[];
+  activeTab: string;
+  onTabChange: (tabId: string) => void;
+}
+
+export function DiaryTabs({ tabs, activeTab, onTabChange }: DiaryTabsProps) {
+  return (
+    <div className="flex gap-1 mb-6">
+      {tabs.map((tab, index) => {
+        const isActive = tab.id === activeTab;
+
+        return (
+          <motion.button
+            key={tab.id}
+            className={`
+              relative px-6 py-3 rounded-t-xl font-medium transition-all
+              ${isActive
+                ? 'text-white shadow-lg'
+                : 'text-hogara-gray/60 hover:text-hogara-gray'
+              }
+            `}
+            style={{
+              background: isActive ? tab.color : 'rgba(255, 255, 255, 0.5)',
+              transform: isActive ? 'translateY(0)' : 'translateY(4px)',
+            }}
+            onClick={() => onTabChange(tab.id)}
+            whileHover={{ scale: isActive ? 1 : 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            {/* Icono */}
+            <span className="text-2xl mr-2">{tab.icon}</span>
+
+            {/* Label */}
+            <span>{tab.label}</span>
+
+            {/* Indicador activo */}
+            {isActive && (
+              <motion.div
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-white rounded-full"
+                layoutId="activeTab"
+                initial={false}
+                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              />
+            )}
+          </motion.button>
+        );
+      })}
+    </div>
+  );
+}

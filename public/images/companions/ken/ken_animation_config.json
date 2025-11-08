@@ -1,0 +1,45 @@
+{
+  "name": "Ken",
+  "type": "German Shepherd Guardian",
+  "animationType": "SVMS",
+  "description": "Magical illustrated German Shepherd with protective yet friendly demeanor",
+  "colors": {
+    "primary": "#1a1a1a",
+    "accent": "#8B4513",
+    "aura": "#FFC864",
+    "glow": "#FFB450"
+  },
+  "animations": {
+    "breathing": {
+      "duration": "4s",
+      "scale": [1.0, 1.015],
+      "easing": "ease-in-out"
+    },
+    "glow": {
+      "duration": "4s",
+      "opacity": [0.3, 0.5],
+      "blur": [15, 18]
+    },
+    "aura": {
+      "duration": "3s",
+      "scale": [1.0, 1.1],
+      "opacity": [0.4, 0.2]
+    }
+  },
+  "assets": {
+    "svg": "./images/companions/ken/ken_animated.svg",
+    "apng": "./images/companions/ken/ken_animated.png",
+    "webp": "./images/companions/ken/ken_animated.webp",
+    "frames": "./images/companions/ken/ken_anim_*.png",
+    "baseImages": [
+      "./images/companions/ken/ken_base_01.png",
+      "./images/companions/ken/ken_base_02.png",
+      "./images/companions/ken/ken_base_03.png"
+    ]
+  },
+  "personality": {
+    "traits": ["protective", "loyal", "gentle", "watchful", "caring"],
+    "role": "Guardian and protector",
+    "specialty": "Security and emotional support"
+  }
+}

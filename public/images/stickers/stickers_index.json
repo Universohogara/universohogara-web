@@ -1,0 +1,319 @@
+{
+  "metadata": {
+    "brand": "Hogara Planner",
+    "collection": "Aesthetic Scrapbook Stickers",
+    "total_stickers": 38,
+    "categories": 5,
+    "style": "Vintage, Aesthetic, Boho-Chic",
+    "palette": [
+      "Terracotta #E07856",
+      "Gold #D4A574",
+      "Cream #F5F1E8",
+      "Soft Pink",
+      "Earth Tones"
+    ]
+  },
+  "categories": {
+    "flores": {
+      "name": "Flores y Botanicals",
+      "description": "Ramos vintage, flores secas y elementos botánicos en tonos cálidos",
+      "count": 8,
+      "stickers": [
+        {
+          "filename": "flores-01.png",
+          "path": "/images/stickers/flores-01.png",
+          "size_kb": 314.3,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "flores-02.png",
+          "path": "/images/stickers/flores-02.png",
+          "size_kb": 385.5,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "flores-03.png",
+          "path": "/images/stickers/flores-03.png",
+          "size_kb": 273.1,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "flores-04.png",
+          "path": "/images/stickers/flores-04.png",
+          "size_kb": 228.7,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "flores-05.png",
+          "path": "/images/stickers/flores-05.png",
+          "size_kb": 412.3,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "flores-06.png",
+          "path": "/images/stickers/flores-06.png",
+          "size_kb": 268.4,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "flores-07.png",
+          "path": "/images/stickers/flores-07.png",
+          "size_kb": 308.6,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "flores-08.png",
+          "path": "/images/stickers/flores-08.png",
+          "size_kb": 298.5,
+          "format": "PNG",
+          "transparent": true
+        }
+      ]
+    },
+    "lettering": {
+      "name": "Lettering y Frases",
+      "description": "Caligrafía moderna y frases motivacionales en tipografía elegante",
+      "count": 10,
+      "stickers": [
+        {
+          "filename": "lettering-01.png",
+          "path": "/images/stickers/lettering-01.png",
+          "size_kb": 174.6,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-02.png",
+          "path": "/images/stickers/lettering-02.png",
+          "size_kb": 276.7,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-03.png",
+          "path": "/images/stickers/lettering-03.png",
+          "size_kb": 320.0,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-04.png",
+          "path": "/images/stickers/lettering-04.png",
+          "size_kb": 311.4,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-05.png",
+          "path": "/images/stickers/lettering-05.png",
+          "size_kb": 187.5,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-06.png",
+          "path": "/images/stickers/lettering-06.png",
+          "size_kb": 230.4,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-07.png",
+          "path": "/images/stickers/lettering-07.png",
+          "size_kb": 348.5,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-08.png",
+          "path": "/images/stickers/lettering-08.png",
+          "size_kb": 4.9,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-09.png",
+          "path": "/images/stickers/lettering-09.png",
+          "size_kb": 5.2,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "lettering-10.png",
+          "path": "/images/stickers/lettering-10.png",
+          "size_kb": 5.4,
+          "format": "PNG",
+          "transparent": true
+        }
+      ]
+    },
+    "cintas": {
+      "name": "Cintas, Sellos y Marcos",
+      "description": "Washi tape, sellos vintage, marcos decorativos y elementos de papelería",
+      "count": 8,
+      "stickers": [
+        {
+          "filename": "cintas-01.png",
+          "path": "/images/stickers/cintas-01.png",
+          "size_kb": 198.5,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "cintas-02.png",
+          "path": "/images/stickers/cintas-02.png",
+          "size_kb": 293.8,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "cintas-03.png",
+          "path": "/images/stickers/cintas-03.png",
+          "size_kb": 131.1,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "cintas-04.png",
+          "path": "/images/stickers/cintas-04.png",
+          "size_kb": 237.8,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "cintas-05.png",
+          "path": "/images/stickers/cintas-05.png",
+          "size_kb": 132.6,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "cintas-06.png",
+          "path": "/images/stickers/cintas-06.png",
+          "size_kb": 241.0,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "cintas-07.png",
+          "path": "/images/stickers/cintas-07.png",
+          "size_kb": 346.6,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "cintas-08.png",
+          "path": "/images/stickers/cintas-08.png",
+          "size_kb": 149.3,
+          "format": "PNG",
+          "transparent": true
+        }
+      ]
+    },
+    "mistico": {
+      "name": "Elementos Místicos",
+      "description": "Cristales, lunas, estrellas y elementos espirituales boho",
+      "count": 6,
+      "stickers": [
+        {
+          "filename": "mistico-01.png",
+          "path": "/images/stickers/mistico-01.png",
+          "size_kb": 21.1,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "mistico-02.png",
+          "path": "/images/stickers/mistico-02.png",
+          "size_kb": 16.3,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "mistico-03.png",
+          "path": "/images/stickers/mistico-03.png",
+          "size_kb": 15.9,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "mistico-04.png",
+          "path": "/images/stickers/mistico-04.png",
+          "size_kb": 100.0,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "mistico-05.png",
+          "path": "/images/stickers/mistico-05.png",
+          "size_kb": 154.8,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "mistico-06.png",
+          "path": "/images/stickers/mistico-06.png",
+          "size_kb": 294.1,
+          "format": "PNG",
+          "transparent": true
+        }
+      ]
+    },
+    "textura": {
+      "name": "Texturas y Overlays",
+      "description": "Manchas de acuarela, papel vintage y texturas orgánicas",
+      "count": 6,
+      "stickers": [
+        {
+          "filename": "textura-01.png",
+          "path": "/images/stickers/textura-01.png",
+          "size_kb": 268.4,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "textura-02.png",
+          "path": "/images/stickers/textura-02.png",
+          "size_kb": 331.4,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "textura-03.png",
+          "path": "/images/stickers/textura-03.png",
+          "size_kb": 199.8,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "textura-04.png",
+          "path": "/images/stickers/textura-04.png",
+          "size_kb": 187.9,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "textura-05.png",
+          "path": "/images/stickers/textura-05.png",
+          "size_kb": 71.3,
+          "format": "PNG",
+          "transparent": true
+        },
+        {
+          "filename": "textura-06.png",
+          "path": "/images/stickers/textura-06.png",
+          "size_kb": 235.8,
+          "format": "PNG",
+          "transparent": true
+        }
+      ]
+    }
+  }
+}
