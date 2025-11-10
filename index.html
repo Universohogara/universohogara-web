@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Hogara ✨</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navegación superior -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logos/universo-hogara-horizontal.png" alt="Universo Hogara Logo">
+            </div>
+            <div class="nav-links">
+                <a href="app.html" class="nav-link app-link">
+                    <span class="nav-icon">📱</span>
+                    <span>App</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Título principal -->
+        <h1 class="main-title">
+            <span class="glow">Universo Hogara</span>
+        </h1>
+        <p class="subtitle">Bienvenida a un mundo de magia, organización y bienestar ✨</p>
+        
+        <!-- Grid de submundos -->
+        <div class="worlds-grid">
+            <!-- 1. Hogara Planner - ACTIVO -->
+            <a href="https://hogaraplanner.abacusai.app" target="_blank" class="world-card active" data-world="planner">
+                <div class="world-icon">
+                    <img src="public/images/LOGO ACTUALIZADO HOGARA.png" alt="Hogara Planner">
+                </div>
+                <h2 class="world-name">Hogara Planner</h2>
+                <p class="world-desc">Tu espacio de organización mágica</p>
+                <div class="world-colors planner-colors"></div>
+                <span class="active-badge">Activo</span>
+            </a>
+            
+            <!-- 2. Hogara Home (Cuerpo) - EJE CENTRAL -->
+            <div class="world-card central-world" data-world="home">
+                <div class="world-icon">
+                    <img src="public/images/logos/hogara-home.jpg" alt="Hogara Home">
+                </div>
+                <h2 class="world-name">Hogara Home</h2>
+                <p class="world-desc">Armonía y tranquilidad en tu hogar • Cuerpo</p>
+                <div class="world-colors home-colors"></div>
+                <span class="coming-soon">Próximamente</span>
+            </div>
+            
+            <!-- 3. Hogara Pet -->
+            <div class="world-card" data-world="pet">
+                <div class="world-icon">
+                    <img src="public/images/logos/hogara-pet.png" alt="Hogara Pet">
+                </div>
+                <h2 class="world-name">Hogara Pet</h2>
+                <p class="world-desc">El hogar de tus compañeros peludos</p>
+                <div class="world-colors pet-colors"></div>
+                <span class="coming-soon">Próximamente</span>
+            </div>
+            
+            <!-- 4. Hogara Mind (Mente) - EJE CENTRAL -->
+            <div class="world-card central-world" data-world="mind">
+                <div class="world-icon">
+                    <img src="public/images/logos/hogara-mind.png" alt="Hogara Mind">
+                </div>
+                <h2 class="world-name">Hogara Mind</h2>
+                <p class="world-desc">Bienestar mental y serenidad • Mente</p>
+                <div class="world-colors mind-colors"></div>
+                <span class="coming-soon">Próximamente</span>
+            </div>
+            
+            <!-- 5. Hogara Esencia -->
+            <div class="world-card" data-world="esencia">
+                <div class="world-icon">
+                    <img src="public/images/logos/hogara-esencia.jpg" alt="Hogara Esencia">
+                </div>
+                <h2 class="world-name">Hogara Esencia</h2>
+                <p class="world-desc">Frescura y energía para tu ser</p>
+                <div class="world-colors esencia-colors"></div>
+                <span class="coming-soon">Próximamente</span>
+            </div>
+            
+            <!-- 6. Hogara Luz (Alma) - EJE CENTRAL -->
+            <div class="world-card central-world" data-world="luz">
+                <div class="world-icon">
+                    <img src="assets/logo-hogara-luz.png" alt="Hogara Luz">
+                </div>
+                <h2 class="world-name">Hogara Luz</h2>
+                <p class="world-desc">Iluminación y energía radiante • Alma</p>
+                <div class="world-colors luz-colors"></div>
+                <span class="coming-soon">Próximamente</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal "Próximamente" -->
+    <div class="modal" id="comingSoonModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon">✨</div>
+            <h2>Próximamente</h2>
+            <p>Este mundo mágico está preparándose para ti.</p>
+            <p>Pronto podrás explorarlo...</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
