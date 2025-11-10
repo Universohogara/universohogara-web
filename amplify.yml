@@ -3,9 +3,9 @@ frontend:
   phases:
     build:
       commands:
-        - echo "Iniciando despliegue de sitio estatico."
+        - echo "Buscando archivos en la carpeta principal."
   artifacts:
-    # Esto le dice a AWS que los archivos estan en la carpeta principal
-    baseDirectory: / 
+    # ¡ESTO ES LO QUE CAMBIA! - Buscamos en una subcarpeta común
+    baseDirectory: public 
     files:
       - '**/*'
