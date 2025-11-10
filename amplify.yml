@@ -1,19 +1,10 @@
 version: 1
-applications:
-  - frontend:
-      phases:
-        preBuild:
-          commands:
-            - yarn install
-        build:
-          commands:
-            - yarn build
-      artifacts:
-        baseDirectory: .next
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
-          - .next/cache/**/*
-    appRoot: /
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "Sitio estático simple. No requiere compilación."
+  artifacts:
+    baseDirectory: /
+    files:
+      - "**/*"
