@@ -3,10 +3,9 @@ frontend:
   phases:
     build:
       commands:
-        - echo "Iniciando despliegue de sitio estático."
+        - echo "Sitio estático - no requiere compilación"
   artifacts:
-    # La ruta de inicio (Root)
-    baseDirectory: / 
+    baseDirectory: .
     files:
       - '**/*'
   cache:
