@@ -3,9 +3,9 @@ frontend:
   phases:
     build:
       commands:
-        - echo "Iniciando despliegue de sitio estático."
+        - echo "Iniciando despliegue de sitio estatico."
   artifacts:
-    # Esto le dice a AWS que los archivos están en la carpeta principal
+    # Esto le dice a AWS que los archivos estan en la carpeta principal
     baseDirectory: / 
     files:
       - '**/*'
