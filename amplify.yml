@@ -3,9 +3,11 @@ frontend:
   phases:
     build:
       commands:
-        - echo "Buscando archivos en la carpeta principal."
+        - echo "Iniciando despliegue de sitio estático."
   artifacts:
-    # ¡ESTO ES LO QUE CAMBIA! - Buscamos en una subcarpeta común
-    baseDirectory: public 
+    # La ruta de inicio (Root)
+    baseDirectory: / 
     files:
       - '**/*'
+  cache:
+    paths: []
