@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SISTEMA_VOCES_EXPRESIVAS_COMPLETADO</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+</head>
+<body>
+<h1 id="sistema-de-voces-expresivas-y-emocionales---completado">✅
+SISTEMA DE VOCES EXPRESIVAS Y EMOCIONALES - COMPLETADO</h1>
+<h2 id="resumen-de-la-implementación">📋 Resumen de la
+Implementación</h2>
+<p>He solucionado el problema del micrófono y he implementado todas las
+mejoras solicitadas para el sistema de voces y emociones de los
+personajes mágicos.</p>
+<hr />
+<h2 id="problema-del-micrófono---solucionado">🎤 PROBLEMA DEL MICRÓFONO
+- SOLUCIONADO</h2>
+<h3 id="problema-original">❌ Problema Original:</h3>
+<ul>
+<li>El micrófono intentaba solicitar permisos automáticamente al cargar
+la página</li>
+<li>Los navegadores bloquean esto por seguridad</li>
+<li>Aparecía el error “No se puede acceder al micrófono”</li>
+</ul>
+<h3 id="solución-implementada">✅ Solución Implementada:</h3>
+<ol type="1">
+<li><strong>Permisos bajo demanda</strong>: Los permisos solo se
+solicitan cuando el usuario hace clic en el botón “Hablar”</li>
+<li><strong>Verificación de dispositivos</strong>: Antes de solicitar
+permisos, verifica que haya un micrófono conectado</li>
+<li><strong>Mejor manejo de errores</strong>: Mensajes claros y
+específicos según el tipo de error</li>
+<li><strong>Indicadores visuales</strong>: Alertas que muestran el
+estado del micrófono (listo, bloqueado, verificando)</li>
+</ol>
+<h3 id="dónde-usar-el-micrófono">📍 Dónde usar el micrófono:</h3>
+<ol type="1">
+<li>Ve a cualquier página donde aparezca tu personaje flotante (abajo a
+la derecha)</li>
+<li>Haz clic en el personaje para abrir el chat</li>
+<li>Selecciona el modo “Voz” 🎤</li>
+<li>Haz clic en “Hablar” y concede permisos al micrófono</li>
+<li>¡Listo! Ya puedes hablar con tu companion</li>
+</ol>
+<hr />
+<h2 id="mejoras-implementadas">✨ MEJORAS IMPLEMENTADAS</h2>
+<h3 id="emojis-no-se-leen-en-voz-alta">1. ❌ Emojis NO se leen en voz
+alta</h3>
+<p><strong>Antes</strong>: El personaje decía “corazón amarillo
+estrella”<br />
+<strong>Ahora</strong>: Solo transmite la emoción con su voz, sin leer
+los símbolos</p>
+<p><strong>Implementación</strong>: - Nuevo módulo
+<code>text-cleaner.ts</code> que elimina todos los emojis y símbolos
+antes de enviar a TTS - Limpia también formato markdown (negritas,
+cursivas, bullets) - Preserva el texto legible para una voz natural</p>
+<h3 id="animaciones-emocionales-automáticas">2. 🎭 Animaciones
+Emocionales Automáticas</h3>
+<p>Los personajes ahora tienen animaciones visuales según su
+emoción:</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 42%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Emoción</th>
+<th>Efectos Visuales</th>
+<th>Color de Aura</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Excited</strong> (Emocionado)</td>
+<td>⭐ Estrellitas brillantes</td>
+<td>Amarillo dorado</td>
+</tr>
+<tr class="even">
+<td><strong>Happy</strong> (Feliz)</td>
+<td>✨ Chispas alegres</td>
+<td>Amarillo brillante</td>
+</tr>
+<tr class="odd">
+<td><strong>Warm</strong> (Cariñoso)</td>
+<td>💖 Corazoncitos</td>
+<td>Rosa cálido</td>
+</tr>
+<tr class="even">
+<td><strong>Sad</strong> (Triste)</td>
+<td>💙 Luz tenue</td>
+<td>Azul suave</td>
+</tr>
+<tr class="odd">
+<td><strong>Protective</strong> (Protector)</td>
+<td>🛡️ Resplandor fuerte</td>
+<td>Azul profundo</td>
+</tr>
+<tr class="even">
+<td><strong>Calm</strong> (Calmado)</td>
+<td>✨ Brillo suave</td>
+<td>Color base del personaje</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Características</strong>: - Las partículas aparecen
+automáticamente según el texto - El aura cambia de color e intensidad -
+El ambiente visual se adapta a la emoción - Todo es orgánico y
+fluido</p>
+<h3 id="voces-expresivas-con-elevenlabs">3. 🎤 Voces Expresivas con
+ElevenLabs</h3>
+<p>Las voces ahora se ajustan automáticamente según la emoción
+detectada:</p>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Emoción</th>
+<th>Ajuste de Voz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Excited</strong></td>
+<td>Menos estable (más variación), más expresivo (+30% estilo)</td>
+</tr>
+<tr class="even">
+<td><strong>Energetic</strong></td>
+<td>Moderadamente expresivo (+20% estilo)</td>
+</tr>
+<tr class="odd">
+<td><strong>Warm</strong></td>
+<td>Más estable, cálido (+15% estilo)</td>
+</tr>
+<tr class="even">
+<td><strong>Sad</strong></td>
+<td>Muy estable, suave, menos expresivo (-10% estilo)</td>
+</tr>
+<tr class="odd">
+<td><strong>Calm</strong></td>
+<td>Valores base naturales</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Características</strong>: - La voz cambia sutilmente pero
+notablemente - Mantiene la personalidad única de cada personaje - Suena
+natural y orgánica, no robótica - Compatible con el sistema BYOK (trae
+tu propia API key)</p>
+<h3 id="detección-automática-de-emociones">4. 🤖 Detección Automática de
+Emociones</h3>
+<p>El sistema detecta automáticamente la emoción del texto:</p>
+<p><strong>Palabras clave que detecta</strong>: -
+<strong>Excited</strong>: ¡increíble! genial, maravilloso, fantástico,
+wow - <strong>Sad</strong>: triste, dolor, llorar, difícil, preocupación
+- <strong>Energetic</strong>: vamos, adelante, ánimo, fuerza, energía -
+<strong>Warm</strong>: amor, cariño, gracias, dulce, abrazo, corazón</p>
+<p><strong>Sin intervención del usuario</strong>: - Todo es automático
+basado en el contexto - No hay que seleccionar nada - Fluye naturalmente
+con la conversación</p>
+<h3 id="interfaz-simplificada">5. 🎛️ Interfaz Simplificada</h3>
+<p><strong>Solo dos opciones visibles para el usuario</strong>: - 💬
+<strong>Chat de Texto</strong> (con voz automática) - 🎤 <strong>Chat
+por Voz</strong> (con micrófono)</p>
+<p><strong>Sin configuraciones complicadas</strong>: - No hay ajustes de
+“natural”, “neutro”, “expresivo” - Todo se gestiona internamente - La
+experiencia es mágica y simple</p>
+<hr />
+<h2 id="archivos-modificadoscreados">🔧 ARCHIVOS
+MODIFICADOS/CREADOS</h2>
+<h3 id="nuevos-archivos">Nuevos archivos:</h3>
+<ol type="1">
+<li><strong><code>lib/text-cleaner.ts</code></strong>: Limpia emojis y
+detecta emociones</li>
+<li><strong><code>components/companion/improved-voice-chat.tsx</code></strong>:
+Componente de voz rediseñado</li>
+</ol>
+<h3 id="archivos-actualizados">Archivos actualizados:</h3>
+<ol type="1">
+<li><strong><code>lib/elevenlabs-service.ts</code></strong>: Soporte de
+emociones en voces</li>
+<li><strong><code>app/api/companion/generate-voice/route.ts</code></strong>:
+API actualizada para emociones</li>
+<li><strong><code>components/companion/floating-companion.tsx</code></strong>:
+Conexión de animaciones emocionales</li>
+<li><strong><code>components/companion/companion-chat.tsx</code></strong>:
+Limpieza de texto en modo texto</li>
+</ol>
+<hr />
+<h2 id="sistema-de-voz---recordatorio">📊 SISTEMA DE VOZ -
+RECORDATORIO</h2>
+<h3 id="usuarios-premium">Usuarios Premium:</h3>
+<ul>
+<li><strong>100 minutos mensuales</strong> de voces realistas con
+ElevenLabs (compartidos)</li>
+<li>Si se agotan, el personaje habla en “idioma mágico” (Woof woof! 🐕,
+Sparkle sparkle! ✨, etc.)</li>
+<li>Reseteo automático cada 30 días</li>
+</ul>
+<h3 id="sistema-byok-bring-your-own-key">Sistema BYOK (Bring Your Own
+Key):</h3>
+<ul>
+<li>Los usuarios pueden conectar su propia API key de ElevenLabs</li>
+<li><strong>Uso ilimitado</strong> cuando usan su propia key</li>
+<li>La app prioriza la key personal sobre la compartida</li>
+<li>Configuración en <code>/premium/configuracion-voz</code></li>
+</ul>
+<hr />
+<h2 id="cómo-probar">🎮 CÓMO PROBAR</h2>
+<h3 id="chat-de-texto-con-voz-automática">1. Chat de Texto con Voz
+Automática:</h3>
+<ol type="1">
+<li>Haz clic en tu personaje flotante (abajo a la derecha)</li>
+<li>El chat se abrirá en modo “Texto” 💬</li>
+<li>Escribe mensajes y el personaje responderá con voz automática</li>
+<li>Las animaciones cambiarán según la emoción del mensaje</li>
+<li><strong>Los emojis NO se leerán en voz alta</strong> ✅</li>
+</ol>
+<h3 id="chat-por-voz-con-micrófono">2. Chat por Voz con Micrófono:</h3>
+<ol type="1">
+<li>Haz clic en tu personaje flotante</li>
+<li>Cambia a modo “Voz” 🎤</li>
+<li>Haz clic en “Hablar”</li>
+<li><strong>Concede permisos al micrófono</strong> (el navegador te
+preguntará)</li>
+<li>Verás una alerta verde: “✅ Micrófono listo”</li>
+<li>Habla y espera la respuesta</li>
+<li>El personaje responderá con voz expresiva según tu mensaje</li>
+</ol>
+<hr />
+<h2 id="experiencia-final">🎨 EXPERIENCIA FINAL</h2>
+<h3 id="lo-que-notarás">Lo que notarás:</h3>
+<ol type="1">
+<li><strong>Voces naturales</strong>: Los personajes suenan reales y
+expresivos</li>
+<li><strong>Sin ruido verbal</strong>: No dicen “corazón amarillo” ni
+“estrella”</li>
+<li><strong>Animaciones vivas</strong>: Estrellitas, corazones, auras
+según la emoción</li>
+<li><strong>Transiciones suaves</strong>: Todo fluye orgánicamente</li>
+<li><strong>Simple de usar</strong>: Solo texto o voz, sin
+configuraciones confusas</li>
+<li><strong>Micrófono funcional</strong>: Solicita permisos
+correctamente</li>
+</ol>
+<h3 id="ken-el-pastor-alemán">Ken (el Pastor Alemán):</h3>
+<ul>
+<li>Cuando está <strong>protector</strong>: aura azul profunda,
+resplandor fuerte</li>
+<li>Cuando está <strong>cariñoso</strong>: corazoncitos rosados</li>
+<li>Cuando está <strong>calmado</strong>: aura azul suave, respiración
+tranquila</li>
+<li>Su voz se ajusta: protectora y firme vs. cálida y suave</li>
+</ul>
+<h3 id="lumi-el-ser-de-luz">Lumi (el ser de luz):</h3>
+<ul>
+<li>Cuando está <strong>emocionado</strong>: estrellitas amarillas
+brillantes</li>
+<li>Cuando está <strong>feliz</strong>: chispas doradas</li>
+<li>Su voz es más brillante y energética vs. suave y calmada</li>
+</ul>
+<hr />
+<h2 id="estado-del-proyecto">✅ ESTADO DEL PROYECTO</h2>
+<ul>
+<li>✅ <strong>Micrófono funcionando</strong> con mejor manejo de
+permisos</li>
+<li>✅ <strong>Emojis no se leen</strong> en voz alta</li>
+<li>✅ <strong>Animaciones emocionales</strong> automáticas</li>
+<li>✅ <strong>Voces expresivas</strong> con ElevenLabs</li>
+<li>✅ <strong>Detección automática</strong> de emociones</li>
+<li>✅ <strong>UI simplificada</strong> (solo texto/voz)</li>
+<li>✅ <strong>Sistema BYOK</strong> funcionando</li>
+<li>✅ <strong>Todas las pruebas pasadas</strong></li>
+<li>✅ <strong>Build exitoso</strong></li>
+<li>✅ <strong>Checkpoint guardado</strong></li>
+</ul>
+<hr />
+<h2 id="notas-técnicas">📝 NOTAS TÉCNICAS</h2>
+<h3 id="compatibilidad">Compatibilidad:</h3>
+<ul>
+<li>✅ Chrome/Edge (Web Speech API)</li>
+<li>✅ ElevenLabs con voces multilingües</li>
+<li>✅ Sistema de cuotas compartidas y BYOK</li>
+<li>⚠️ Safari/Firefox no soportan Web Speech API (solo modo texto)</li>
+</ul>
+<h3 id="logs-en-consola">Logs en consola:</h3>
+<pre><code>🎭 Generando voz con emoción: excited
+🎚️ Settings: stability=0.35, style=0.60
+🎤 5 micrófono(s) encontrado(s)
+✅ Permisos de micrófono concedidos
+✅ Voz generada: 245 caracteres, ~1 min</code></pre>
+<hr />
+<h2 id="listo-para-usar">🎉 ¡LISTO PARA USAR!</h2>
+<p>Tu sistema de voces expresivas y emocionales está completamente
+implementado y funcionando.</p>
+<p>Los personajes ahora “viven” y reaccionan emocionalmente de forma
+orgánica y mágica. ✨</p>
+<p><strong>Checkpoint guardado</strong>: “Micrófono arreglado + Voces
+expresivas emocionales”</p>
+</body>
+</html>
