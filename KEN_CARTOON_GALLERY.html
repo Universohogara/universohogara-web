@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Guardián - Galería de Frames Cartoon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+        .animation-demo {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .animation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ken-animated {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            filter: drop-shadow(0 10px 30px rgba(255, 160, 60, 0.4));
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #f093fb;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #d67de8;
+            transform: translateY(-2px);
+        }
+        .frames-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .frame-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .frame-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #e9ecef;
+        }
+        .frame-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .frame-number {
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 0.5rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .info-box {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .info-box h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-box li {
+            padding: 0.5rem 0;
+            color: #495057;
+        }
+        .info-box li:before {
+            content: "✨ ";
+            margin-right: 0.5rem;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .ken-animated {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐕 Ken Guardián</h1>
+        <p class="subtitle">Versión Cartoon Dibujado - 24 Frames Animados</p>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">24</div>
+                <div class="stat-label">Frames Totales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">FPS (Frames por Segundo)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">300px</div>
+                <div class="stat-label">Tamaño por Defecto</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">8s</div>
+                <div class="stat-label">Duración del Loop</div>
+            </div>
+        </div>
+
+        <!-- Animation Demo -->
+        <div class="animation-demo">
+            <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem;">🎬 Animación en Tiempo Real</h2>
+            <div class="animation-container">
+                <img id="kenAnimated" class="ken-animated" src="" alt="Ken Guardián">
+            </div>
+            <div class="controls">
+                <button class="btn btn-primary" onclick="startAnimation()">▶ Iniciar</button>
+                <button class="btn btn-secondary" onclick="stopAnimation()">⏸ Pausar</button>
+                <button class="btn btn-primary" onclick="changeFPS(1)">1 FPS</button>
+                <button class="btn btn-primary" onclick="changeFPS(3)">3 FPS (Original)</button>
+                <button class="btn btn-primary" onclick="changeFPS(6)">6 FPS</button>
+                <button class="btn btn-primary" onclick="changeFPS(12)">12 FPS</button>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            <h2>🎨 Características de Ken Guardián</h2>
+            <ul>
+                <li><strong>Frames 0-7:</strong> Respiración ligera y postura vigilante</li>
+                <li><strong>Frames 8-14:</strong> Momento amigable con lengua y sonrisa</li>
+                <li><strong>Frames 15-19:</strong> Escaneo protector girando la cabeza</li>
+                <li><strong>Frames 20-23:</strong> Parpadeo natural para completar el loop</li>
+                <li><strong>Estilo:</strong> Cartoon elegante consistente con Lumi, Aurora y Nox</li>
+                <li><strong>Aura mágica:</strong> Adaptativa según emociones (calm, happy, sad, excited, anxious, protective)</li>
+            </ul>
+        </div>
+
+        <!-- Frames Grid -->
+        <div class="frames-grid" id="framesGrid"></div>
+    </div>
+
+    <script>
+        const TOTAL_FRAMES = 24;
+        let currentFrame = 0;
+        let animationInterval = null;
+        let fps = 3;
+
+        // Generar grid de frames
+        const framesGrid = document.getElementById('framesGrid');
+        for (let i = 0; i < TOTAL_FRAMES; i++) {
+            const frameNumber = String(i).padStart(3, '0');
+            const framePath = `ken_guardian_${frameNumber}.png`;
+            
+            const frameItem = document.createElement('div');
+            frameItem.className = 'frame-item';
+            frameItem.innerHTML = `
+                <img src="${framePath}" alt="Ken Frame ${i}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' font-family=\'Arial\' font-size=\'16\' fill=\'%23999\'%3EFrame ${i}%3C/text%3E%3C/svg%3E'">
+                <div class="frame-number">Frame ${i}</div>
+            `;
+            framesGrid.appendChild(frameItem);
+        }
+
+        // Animación
+        function updateFrame() {
+            const frameNumber = String(currentFrame).padStart(3, '0');
+            const framePath = `ken_guardian_${frameNumber}.png`;
+            document.getElementById('kenAnimated').src = framePath;
+            currentFrame = (currentFrame + 1) % TOTAL_FRAMES;
+        }
+
+        function startAnimation() {
+            if (animationInterval) clearInterval(animationInterval);
+            const frameDelay = 1000 / fps;
+            animationInterval = setInterval(updateFrame, frameDelay);
+            updateFrame();
+        }
+
+        function stopAnimation() {
+            if (animationInterval) {
+                clearInterval(animationInterval);
+                animationInterval = null;
+            }
+        }
+
+        function changeFPS(newFPS) {
+            fps = newFPS;
+            if (animationInterval) {
+                stopAnimation();
+                startAnimation();
+            }
+        }
+
+        // Auto-iniciar
+        window.onload = () => {
+            startAnimation();
+        };
+    </script>
+</body>
+</html>

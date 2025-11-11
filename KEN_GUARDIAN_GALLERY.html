@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Guardián - Galería de Animación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        .preview-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+        .preview-card h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .animation-container {
+            text-align: center;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .animation-canvas {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .animation-canvas img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .frame-info {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #666;
+        }
+        .frame-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .frame-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .frame-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .frame-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: white;
+        }
+        .frame-label {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+        .controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .btn {
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #856404;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐕 Ken Guardián - Versión Cartoon</h1>
+        <p class="subtitle">Animación noble y protectora | 24 frames @ 12 FPS</p>
+
+        <div class="preview-card">
+            <h2>✨ Animación en Vivo</h2>
+            <div class="animation-container">
+                <div class="animation-canvas">
+                    <img id="kenFrame" src="https://cdn.abacus.ai/images/d1261306-3a05-49cf-b3e0-7c52d680e014.png" alt="Ken Guardián">
+                </div>
+                <div class="frame-info">
+                    Frame <span class="highlight" id="currentFrame">0</span> de 24
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn" onclick="toggleAnimation()">⏯️ Play/Pause</button>
+                <button class="btn" onclick="nextFrame()">⏭️ Siguiente Frame</button>
+                <button class="btn" onclick="resetAnimation()">🔄 Reiniciar</button>
+            </div>
+        </div>
+
+        <div class="preview-card">
+            <h2>📊 Especificaciones Técnicas</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Frames Totales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">FPS</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2s</div>
+                    <div class="stat-label">Duración Loop</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1024px</div>
+                    <div class="stat-label">Resolución</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-card">
+            <h2>🎬 Secuencias de Animación</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-label">FRAMES 0-7</div>
+                    <div class="stat-number" style="font-size: 1.5rem;">Respiración Alerta</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">FRAMES 8-14</div>
+                    <div class="stat-number" style="font-size: 1.5rem;">Momento Amigable</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">FRAMES 15-19</div>
+                    <div class="stat-number" style="font-size: 1.5rem;">Escaneo Protector</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">FRAMES 20-23</div>
+                    <div class="stat-number" style="font-size: 1.5rem;">Parpadeo Natural</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-card">
+            <h2>🖼️ Galería de Frames Clave</h2>
+            <div class="frame-grid" id="frameGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        const frames = [
+            { url: 'https://cdn.abacus.ai/images/d1261306-3a05-49cf-b3e0-7c52d680e014.png', label: 'Frame 0 - Idle Alerta' },
+            { url: 'https://cdn.abacus.ai/images/70e5084a-02f2-4b65-8811-8083ef14e9cd.png', label: 'Frame 1 - Respiración' },
+            { url: 'https://cdn.abacus.ai/images/c50e214e-716a-4ab6-bef0-9d923174c8a5.png', label: 'Frame 2 - Escaneo' },
+            { url: 'https://cdn.abacus.ai/images/7cc97bbf-c604-4148-b206-48cdadb06209.png', label: 'Frame 3 - Alerta' },
+            { url: 'https://cdn.abacus.ai/images/8466833a-3413-4acf-b362-675dbc8daa66.png', label: 'Frame 4 - ⭐ FAVORITO' },
+            { url: 'https://cdn.abacus.ai/images/096811a3-005a-4a69-ad9c-0b6fae59b0ae.png', label: 'Frame 5 - Vigilante' },
+            { url: 'https://cdn.abacus.ai/images/8422df85-a1ad-45d8-8706-815427d49c38.png', label: 'Frame 6 - Atento' },
+            { url: 'https://cdn.abacus.ai/images/aa430c0e-6aae-4b30-9420-3705fa752882.png', label: 'Frame 7 - Respiración' },
+            { url: 'https://cdn.abacus.ai/images/3ba80056-e164-4310-979b-391f6847b7b1.png', label: 'Frame 8 - Amigable' },
+            { url: 'https://cdn.abacus.ai/images/5eac2e7d-4f53-4df3-91fc-5c15a4c38742.png', label: 'Frame 9 - Sonrisa' },
+            { url: 'https://cdn.abacus.ai/images/ce449212-5fc1-42d9-a051-f72fd169947f.png', label: 'Frame 10 - Lengua' },
+            { url: 'https://cdn.abacus.ai/images/828e7552-ab18-4dbb-b624-4c1f8edf788c.png', label: 'Frame 11 - Feliz' },
+            { url: 'https://cdn.abacus.ai/images/c45ce8bc-3c96-456a-a96d-eabf01ab1ed7.png', label: 'Frame 12 - Contento' },
+            { url: 'https://cdn.abacus.ai/images/ffbb837c-ee55-4a60-b264-db0d2bfc87bf.png', label: 'Frame 13 - Amable' },
+            { url: 'https://cdn.abacus.ai/images/3a2734a3-9cba-4df1-802f-895578b98936.png', label: 'Frame 14 - Cálido' },
+            { url: 'https://cdn.abacus.ai/images/b51e15ba-5c6e-49b8-a50b-336000feb00f.jpg', label: 'Frame 15 - Serio' },
+            { url: 'https://cdn.abacus.ai/images/8642748c-e6ce-4d5d-b459-c26cd4000a32.jpg', label: 'Frame 16 - Giro Inicio' },
+            { url: 'https://cdn.abacus.ai/images/bcb458c9-250c-4d8a-a542-197c753933bf.jpg', label: 'Frame 17 - Escaneo Izq' },
+            { url: 'https://cdn.abacus.ai/images/95acbcfe-2588-41f3-9ed8-b849cf07eec8.jpg', label: 'Frame 18 - Regreso' },
+            { url: 'https://cdn.abacus.ai/images/da626215-8d79-4c44-ac21-d6bb09858484.jpg', label: 'Frame 19 - Centro' },
+            { url: 'https://cdn.abacus.ai/images/fa6dff62-e951-49f5-94cc-e8a963368300.jpg', label: 'Frame 20 - Parpadeo 25%' },
+            { url: 'https://cdn.abacus.ai/images/902e5ef4-93e8-45db-bebd-ebe92a81ae35.jpg', label: 'Frame 21 - Parpadeo 50%' },
+            { url: 'https://cdn.abacus.ai/images/68ff223b-b8c6-4259-bce8-08206b31bce1.jpg', label: 'Frame 22 - Parpadeo 75%' },
+            { url: 'https://cdn.abacus.ai/images/6f9c5442-edd7-459e-91c8-c12eddcb0245.jpg', label: 'Frame 23 - Loop Completo' }
+        ];
+
+        let currentFrameIndex = 0;
+        let animationInterval = null;
+        let isPlaying = false;
+
+        const kenFrame = document.getElementById('kenFrame');
+        const currentFrameEl = document.getElementById('currentFrame');
+        const frameGrid = document.getElementById('frameGrid');
+
+        // Poblar galería
+        frames.forEach((frame, index) => {
+            const div = document.createElement('div');
+            div.className = 'frame-item';
+            div.onclick = () => showFrame(index);
+            div.innerHTML = `
+                <img src="${frame.url}" alt="${frame.label}">
+                <div class="frame-label">${frame.label}</div>
+            `;
+            frameGrid.appendChild(div);
+        });
+
+        function showFrame(index) {
+            currentFrameIndex = index;
+            kenFrame.src = frames[index].url;
+            currentFrameEl.textContent = index;
+        }
+
+        function nextFrame() {
+            currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+            showFrame(currentFrameIndex);
+        }
+
+        function toggleAnimation() {
+            if (isPlaying) {
+                clearInterval(animationInterval);
+                isPlaying = false;
+            } else {
+                animationInterval = setInterval(nextFrame, 1000 / 12); // 12 FPS
+                isPlaying = true;
+            }
+        }
+
+        function resetAnimation() {
+            if (isPlaying) {
+                clearInterval(animationInterval);
+                isPlaying = false;
+            }
+            showFrame(0);
+        }
+
+        // Auto-play al cargar
+        setTimeout(() => toggleAnimation(), 1000);
+    </script>
+</body>
+</html>
