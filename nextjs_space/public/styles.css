@@ -1,0 +1,1073 @@
+/* ====================================
+   UNIVERSO HOGARA - MAPA INTERACTIVO
+   ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Cormorant Garamond', 'Playfair Display', serif;
+    background: linear-gradient(135deg, #F9D6E4 0%, #C6B8FF 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #1C1B4A;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Efecto de brillo cósmico sutil */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 195, 225, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(200, 224, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 145, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+    animation: shimmer 10s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.4; }
+}
+
+/* ====================================
+   CONTENEDOR PRINCIPAL DE LA IMAGEN
+   ==================================== */
+
+.universo-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 10;
+    /* Contenedor estático y bien centrado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.universo-base-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(28, 27, 74, 0.3),
+        0 0 100px rgba(255, 195, 225, 0.4);
+    /* Imagen completamente estática - sin animación */
+}
+
+/* ====================================
+   ZONAS CLICKEABLES (HOTSPOTS)
+   ==================================== */
+
+.world-hotspot {
+    position: absolute;
+    width: 13%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20;
+    transform-origin: center center;
+    /* Zona invisible que se activa al hover */
+    border: 2px solid transparent;
+    background-color: transparent;
+}
+
+.world-hotspot:hover {
+    border-color: rgba(255, 215, 145, 0.9);
+    background-color: rgba(255, 215, 145, 0.15);
+    box-shadow: 
+        0 0 25px rgba(255, 215, 145, 0.9),
+        0 0 45px rgba(255, 195, 225, 0.7);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Hover con scale manteniendo el centrado - Todos usan left ahora */
+.planner-hotspot:hover,
+.home-hotspot:hover,
+.luz-hotspot:hover,
+.mind-hotspot:hover,
+.esencia-hotspot:hover,
+.pet-hotspot:hover,
+.app-hotspot:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 145, 0.6); }
+    50% { box-shadow: 0 0 40px rgba(255, 215, 145, 1); }
+}
+
+/* ====================================
+   POSICIONAMIENTO DE CADA MUNDO
+   (Ajustado con precisión sobre cada planeta)
+   ==================================== */
+
+/* Hogara Planner - Izquierda Superior */
+.planner-hotspot {
+    top: 30%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hogara Home - Centro Superior */
+.home-hotspot {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hogara Luz - Derecha Superior */
+.luz-hotspot {
+    top: 30%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hogara Mind - Izquierda Media */
+.mind-hotspot {
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hogara Esencia - Derecha Media */
+.esencia-hotspot {
+    top: 50%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hogara Pet - Izquierda Inferior */
+.pet-hotspot {
+    top: 70%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hogara App - Derecha Inferior */
+.app-hotspot {
+    top: 70%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+/* ====================================
+   TOOLTIPS (DESCRIPCIONES AL HOVER)
+   ==================================== */
+
+.hotspot-tooltip {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translate(-50%, 0) scale(0);
+    transform-origin: center bottom;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(249, 214, 228, 0.95));
+    color: #1C1B4A;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: nowrap;
+    box-shadow: 
+        0 10px 30px rgba(28, 27, 74, 0.25),
+        0 0 20px rgba(255, 215, 145, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 215, 145, 0.6);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    min-width: max-content;
+}
+
+/* Flecha del tooltip perfectamente centrada */
+.hotspot-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: rgba(255, 215, 145, 0.6);
+    filter: drop-shadow(0 2px 4px rgba(28, 27, 74, 0.1));
+}
+
+/* Flechas ajustadas para tooltips en bordes */
+.luz-hotspot .hotspot-tooltip::after,
+.esencia-hotspot .hotspot-tooltip::after,
+.app-hotspot .hotspot-tooltip::after {
+    left: auto;
+    right: 20px;
+    transform: translateX(0);
+}
+
+.planner-hotspot .hotspot-tooltip::after,
+.mind-hotspot .hotspot-tooltip::after,
+.pet-hotspot .hotspot-tooltip::after {
+    left: 20px;
+    right: auto;
+    transform: translateX(0);
+}
+
+.world-hotspot:hover .hotspot-tooltip {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+}
+
+.hotspot-tooltip strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #F54291;
+    margin-bottom: 5px;
+    text-shadow: 0 1px 2px rgba(255, 215, 145, 0.4);
+}
+
+.status-active {
+    color: #FFD991;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.status-coming {
+    color: #C6B8FF;
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* ====================================
+   MODAL "PRÓXIMAMENTE"
+   ==================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 27, 74, 0.8);
+    backdrop-filter: blur(10px);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #FEFEFE 0%, #F9D6E4 100%);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 
+        0 20px 60px rgba(28, 27, 74, 0.4),
+        0 0 100px rgba(255, 215, 145, 0.6);
+    border: 3px solid rgba(255, 215, 145, 0.8);
+    animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.modal-content h2 {
+    color: #F54291;
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    text-shadow: 0 2px 4px rgba(255, 215, 145, 0.4);
+}
+
+.modal-content p {
+    color: #1C1B4A;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #F54291;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #FFD991;
+    transform: rotate(90deg) scale(1.2);
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .universo-container {
+        max-width: 100%;
+    }
+    
+    .world-hotspot {
+        width: 15%;
+        height: 15%;
+    }
+    
+    .hotspot-tooltip {
+        font-size: 12px;
+        padding: 10px 15px;
+        white-space: normal;
+        max-width: 200px;
+        bottom: 140%;
+        /* Ajuste especial para tooltips que se salen del viewport */
+    }
+    
+    /* Hotspots en los bordes - ajustes especiales */
+    .luz-hotspot .hotspot-tooltip,
+    .esencia-hotspot .hotspot-tooltip,
+    .app-hotspot .hotspot-tooltip {
+        left: auto;
+        right: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    
+    .luz-hotspot:hover .hotspot-tooltip,
+    .esencia-hotspot:hover .hotspot-tooltip,
+    .app-hotspot:hover .hotspot-tooltip {
+        transform: translate(0, 0) scale(1);
+    }
+    
+    .planner-hotspot .hotspot-tooltip,
+    .mind-hotspot .hotspot-tooltip,
+    .pet-hotspot .hotspot-tooltip {
+        left: 0;
+        right: auto;
+        transform: translate(0, 0) scale(0);
+    }
+    
+    .planner-hotspot:hover .hotspot-tooltip,
+    .mind-hotspot:hover .hotspot-tooltip,
+    .pet-hotspot:hover .hotspot-tooltip {
+        transform: translate(0, 0) scale(1);
+    }
+    
+    .hotspot-tooltip strong {
+        font-size: 14px;
+    }
+    
+    .modal-content {
+        margin: 20px;
+        padding: 30px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .world-hotspot {
+        width: 18%;
+        height: 18%;
+    }
+    
+    .hotspot-tooltip {
+        font-size: 11px;
+        padding: 8px 12px;
+        max-width: 160px;
+        bottom: 145%;
+    }
+    
+    /* Ajustes móviles para hotspots en bordes */
+    .luz-hotspot .hotspot-tooltip,
+    .esencia-hotspot .hotspot-tooltip,
+    .app-hotspot .hotspot-tooltip {
+        left: auto;
+        right: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    
+    .luz-hotspot:hover .hotspot-tooltip,
+    .esencia-hotspot:hover .hotspot-tooltip,
+    .app-hotspot:hover .hotspot-tooltip {
+        transform: translate(0, 0) scale(1);
+    }
+    
+    .planner-hotspot .hotspot-tooltip,
+    .mind-hotspot .hotspot-tooltip,
+    .pet-hotspot .hotspot-tooltip {
+        left: 0;
+        right: auto;
+        transform: translate(0, 0) scale(0);
+    }
+    
+    .planner-hotspot:hover .hotspot-tooltip,
+    .mind-hotspot:hover .hotspot-tooltip,
+    .pet-hotspot:hover .hotspot-tooltip {
+        transform: translate(0, 0) scale(1);
+    }
+    
+    .hotspot-tooltip strong {
+        font-size: 12px;
+    }
+    
+    .modal-content {
+        padding: 25px;
+        max-width: 90%;
+    }
+    
+    .modal-content h2 {
+        font-size: 22px;
+    }
+    
+    .modal-content p {
+        font-size: 14px;
+    }
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 216, 155, 0.3);
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 216, 155, 0.5);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+/* Partículas de fondo - estrellas mágicas */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #ffffff 0%, #ffd700 50%, transparent 100%);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out, sparkle 3s infinite ease-in-out;
+    box-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 182, 193, 0.4);
+}
+
+.particle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    opacity: 0.6;
+}
+
+.particle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 12px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    opacity: 0.6;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+    50% {
+        filter: brightness(1.5);
+        transform: scale(1.2);
+    }
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    z-index: 3;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 140px 20px 60px;
+}
+
+/* Título principal */
+.main-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.glow {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff69b4 0%, #4169e1 50%, #9370db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.5));
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.5)) brightness(1);
+    }
+    to {
+        filter: drop-shadow(0 0 30px rgba(65, 105, 225, 0.6)) brightness(1.2);
+    }
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #5a4a7a;
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+/* Grid de mundos */
+.worlds-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Conexión triangular con arcoíris entre mundos centrales */
+.worlds-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: 
+        /* Línea arcoíris Home -> Mind (diagonal rosa->violeta->azul) */
+        linear-gradient(135deg, 
+            transparent 0%, 
+            transparent calc(50% - 3px), 
+            #ff69b4 calc(50% - 3px), 
+            #9370db calc(50% - 1px),
+            #4169e1 calc(50% + 1px),
+            #00bfff calc(50% + 3px), 
+            transparent calc(50% + 3px), 
+            transparent 100%
+        ),
+        /* Línea arcoíris Mind -> Luz (diagonal azul->verde->amarillo) */
+        linear-gradient(45deg, 
+            transparent 0%, 
+            transparent calc(50% - 3px), 
+            #4169e1 calc(50% - 3px), 
+            #00bfff calc(50% - 1px),
+            #00fa9a calc(50% + 1px),
+            #ffd700 calc(50% + 3px), 
+            transparent calc(50% + 3px), 
+            transparent 100%
+        ),
+        /* Línea arcoíris Luz -> Home (horizontal amarillo->naranja->rojo->rosa) */
+        linear-gradient(90deg, 
+            transparent 0%, 
+            transparent calc(50% - 2px), 
+            #ffd700 calc(50% - 2px), 
+            #ffa500 calc(50% - 1px),
+            #ff6347 calc(50% + 1px),
+            #ff69b4 calc(50% + 2px), 
+            transparent calc(50% + 2px), 
+            transparent 100%
+        );
+    opacity: 0.6;
+    animation: rainbow-constellation-pulse 4s ease-in-out infinite;
+}
+
+@keyframes rainbow-constellation-pulse {
+    0%, 100% { 
+        opacity: 0.5; 
+        filter: brightness(1) saturate(1);
+    }
+    50% { 
+        opacity: 0.8; 
+        filter: brightness(1.3) saturate(1.4);
+    }
+}
+
+@keyframes constellation-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+
+/* Tarjeta de mundo */
+.world-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 182, 193, 0.4);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: #2d2d44;
+    display: block;
+    z-index: 2;
+}
+
+.world-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.world-card:hover::before {
+    opacity: 1;
+}
+
+.world-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 105, 180, 0.6);
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+}
+
+.world-card.active {
+    border: 2px solid rgba(255, 215, 155, 0.7);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(255, 215, 155, 0.4);
+}
+
+/* Mundos centrales (Cuerpo-Mente-Alma) con aura mágica */
+.world-card.central-world {
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #ff69b4, #4169e1, #9370db) 1;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 0 30px rgba(255, 105, 180, 0.4),
+        0 0 50px rgba(65, 105, 225, 0.3),
+        0 10px 40px rgba(147, 112, 219, 0.2);
+    animation: central-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes central-glow {
+    0% {
+        box-shadow: 
+            0 0 30px rgba(255, 105, 180, 0.4),
+            0 0 50px rgba(65, 105, 225, 0.3),
+            0 10px 40px rgba(147, 112, 219, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 0 40px rgba(255, 105, 180, 0.6),
+            0 0 60px rgba(65, 105, 225, 0.5),
+            0 10px 50px rgba(147, 112, 219, 0.4);
+    }
+}
+
+.world-card.central-world:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 0 50px rgba(255, 105, 180, 0.7),
+        0 0 80px rgba(65, 105, 225, 0.6),
+        0 15px 60px rgba(147, 112, 219, 0.5);
+}
+
+.world-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.world-card:hover .world-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.world-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.world-name {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #2d2d44;
+}
+
+.world-desc {
+    font-size: 1rem;
+    color: #5a4a7a;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Colores del arcoíris */
+.world-colors {
+    height: 6px;
+    border-radius: 3px;
+    margin: 20px auto 0;
+    width: 80%;
+}
+
+.planner-colors {
+    background: linear-gradient(90deg, 
+        #f9d5d3 0%, 
+        #f7c7b7 25%, 
+        #f8e6d3 50%, 
+        #f0e8dc 75%, 
+        #e8d5d3 100%
+    );
+}
+
+.home-colors {
+    background: linear-gradient(90deg, 
+        #90ee90 0%, 
+        #8fbc8f 25%, 
+        #f5f5dc 50%, 
+        #e0e8d0 75%, 
+        #9acd32 100%
+    );
+}
+
+.pet-colors {
+    background: linear-gradient(90deg, 
+        #8b4513 0%, 
+        #a0522d 14%, 
+        #cd853f 28%, 
+        #228b22 42%, 
+        #32cd32 57%, 
+        #9acd32 71%, 
+        #ffd700 85%, 
+        #ff6347 100%
+    );
+}
+
+.esencia-colors {
+    background: linear-gradient(90deg, 
+        #40e0d0 0%, 
+        #48d1cc 25%, 
+        #7fffd4 50%, 
+        #98fb98 75%, 
+        #00ced1 100%
+    );
+}
+
+.mind-colors {
+    background: linear-gradient(90deg, 
+        #b0c4de 0%, 
+        #add8e6 25%, 
+        #e6e6fa 50%, 
+        #d8bfd8 75%, 
+        #87ceeb 100%
+    );
+}
+
+.luz-colors {
+    background: linear-gradient(90deg, 
+        #ffd700 0%, 
+        #ffed4e 20%, 
+        #ffff00 40%, 
+        #f0e68c 60%, 
+        #ffa500 80%, 
+        #ffb347 100%
+    );
+}
+
+/* Badges */
+.active-badge,
+.coming-soon {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.active-badge {
+    background: linear-gradient(135deg, #ff69b4 0%, #4169e1 100%);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+}
+
+.coming-soon {
+    background: rgba(147, 112, 219, 0.15);
+    color: #5a4a7a;
+    border: 1px solid rgba(147, 112, 219, 0.4);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #ffd4f4 50%, #e8d8ff 100%);
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #ff69b4, #4169e1, #9370db) 1;
+    border-radius: 30px;
+    padding: 60px 50px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    animation: modalSlideIn 0.4s ease;
+    box-shadow: 
+        0 0 40px rgba(255, 105, 180, 0.4),
+        0 0 60px rgba(65, 105, 225, 0.3),
+        0 20px 80px rgba(147, 112, 219, 0.3);
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #5a4a7a;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #ff69b4;
+}
+
+.modal-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: sparkle 2s infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)) brightness(1);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) brightness(1.5);
+    }
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ff69b4 0%, #4169e1 50%, #9370db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    color: #5a4a7a;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .worlds-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-logo {
+        height: 40px;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .worlds-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .world-card {
+        padding: 30px 20px;
+    }
+    
+    .world-icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .world-name {
+        font-size: 1.5rem;
+    }
+    
+    .modal-content {
+        padding: 40px 30px;
+        margin: 20px;
+    }
+}

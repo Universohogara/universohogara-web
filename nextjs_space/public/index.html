@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Hogara ✨</title>
+    <!-- Version: 2025-11-12-tooltips-centered-aws-deploy -->
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor principal con la imagen base -->
+    <div class="universo-container">
+        <!-- Imagen base de Gara con los logos -->
+        <img src="/images/fondo web principal.png" alt="Universo Hogara" class="universo-base-image">
+        
+        <!-- Zonas clickeables transparentes sobre cada logo -->
+        
+        <!-- 1. Hogara Planner (izquierda superior) -->
+        <a href="https://hogaraplanner.abacusai.app" target="_blank" 
+           class="world-hotspot planner-hotspot" 
+           data-world="planner"
+           aria-label="Hogara Planner">
+            <span class="hotspot-tooltip">
+                <strong>Hogara Planner</strong><br>
+                Tu espacio de organización mágica<br>
+                <em class="status-active">✨ Activo</em>
+            </span>
+        </a>
+        
+        <!-- 2. Hogara Home (centro superior) -->
+        <div class="world-hotspot home-hotspot" 
+             data-world="home"
+             aria-label="Hogara Home">
+            <span class="hotspot-tooltip">
+                <strong>Hogara Home</strong><br>
+                Armonía y tranquilidad en tu hogar • Cuerpo<br>
+                <em class="status-coming">Próximamente</em>
+            </span>
+        </div>
+        
+        <!-- 3. Hogara Luz (derecha superior) -->
+        <div class="world-hotspot luz-hotspot" 
+             data-world="luz"
+             aria-label="Hogara Luz">
+            <span class="hotspot-tooltip">
+                <strong>Hogara Luz</strong><br>
+                Iluminación y energía radiante • Alma<br>
+                <em class="status-coming">Próximamente</em>
+            </span>
+        </div>
+        
+        <!-- 4. Hogara Mind (izquierda media) -->
+        <div class="world-hotspot mind-hotspot" 
+             data-world="mind"
+             aria-label="Hogara Mind">
+            <span class="hotspot-tooltip">
+                <strong>Hogara Mind</strong><br>
+                Bienestar mental y serenidad • Mente<br>
+                <em class="status-coming">Próximamente</em>
+            </span>
+        </div>
+        
+        <!-- 5. Hogara Esencia (derecha media) -->
+        <div class="world-hotspot esencia-hotspot" 
+             data-world="esencia"
+             aria-label="Hogara Esencia">
+            <span class="hotspot-tooltip">
+                <strong>Hogara Esencia</strong><br>
+                Frescura y energía para tu ser<br>
+                <em class="status-coming">Próximamente</em>
+            </span>
+        </div>
+        
+        <!-- 6. Hogara Pet (izquierda inferior) -->
+        <div class="world-hotspot pet-hotspot" 
+             data-world="pet"
+             aria-label="Hogara Pet">
+            <span class="hotspot-tooltip">
+                <strong>Hogara Pet</strong><br>
+                El hogar de tus compañeros peludos<br>
+                <em class="status-coming">Próximamente</em>
+            </span>
+        </div>
+        
+        <!-- 7. Hogara App (derecha inferior - círculo morado) -->
+        <div class="world-hotspot app-hotspot" 
+             data-world="app"
+             aria-label="Hogara App">
+            <span class="hotspot-tooltip">
+                <strong>Hogara App</strong><br>
+                Tu compañera digital del día a día<br>
+                <em class="status-coming">Próximamente</em>
+            </span>
+        </div>
+    </div>
+    
+    <!-- Modal "Próximamente" -->
+    <div class="modal" id="comingSoonModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon">✨</div>
+            <h2>Próximamente</h2>
+            <p>Este mundo mágico está preparándose para ti.</p>
+            <p>Pronto podrás explorarlo...</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
