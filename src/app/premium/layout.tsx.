@@ -1,0 +1,13 @@
+import React from 'react';
+
+// Este Layout es una envoltura mínima necesaria para que la ruta '/premium' sea válida en Next.js.
+// Simplemente renderiza el contenido de la página (page.tsx) que recibe como 'children'.
+export default function PremiumLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>{children}</>
+  );
+}
