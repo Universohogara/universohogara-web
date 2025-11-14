@@ -19,9 +19,9 @@
         "name": "next"
       }
     ],
-    // 🛑 ¡ESTA SECCIÓN ES CRÍTICA! 🛑
+    // 🛑 ¡ESTA SECCIÓN ES CRÍTICA! Ahora apunta a la nueva carpeta 'src'.
     "paths": {
-      "@/*": ["./*"] // Esto le dice al compilador: '@/' significa la raíz del proyecto (donde está este archivo).
+      "@/*": ["./src/*"] // CAMBIO: Le dice al compilador: '@/' significa la carpeta 'src/'.
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
