@@ -1,18 +1,25 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
+
+export interface ToastOptions {
+  title?: string;
+  description?: string;
+}
 
 export function useToast() {
-  const [message, setMessage] = useState<string | null>(null);
+  const [toastData, setToastData] = useState<ToastOptions | null>(null);
 
-  const showToast = useCallback((msg: string) => {
-    setMessage(msg);
-    setTimeout(() => setMessage(null), 3000);
-  }, []);
+  function toast(options: ToastOptions) {
+    setToastData(options);
+
+    // Ocultar después de 3s
+    setTimeout(() => setToastData(null), 3000);
+  }
 
   return {
-    message,
-    showToast,
+    toast,
+    toastData,
   };
 }
 
