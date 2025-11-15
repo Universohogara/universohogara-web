@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,9 +25,18 @@
     ],
     // 🛑 ¡ESTA SECCIÓN ES CRÍTICA! Ahora apunta a la nueva carpeta 'src'.
     "paths": {
-      "@/*": ["./src/*"] // CAMBIO: Le dice al compilador: '@/' significa la carpeta 'src/'.
+      "@/*": [
+        "./src/*"
+      ] // CAMBIO: Le dice al compilador: '@/' significa la carpeta 'src/'.
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".build/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,4 +1,4 @@
-import { prisma } from '../lib/db';
+import { prisma } from '@/lib/db';
 
 // Contenido real basado en investigación de internet
 
