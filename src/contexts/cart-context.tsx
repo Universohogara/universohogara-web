@@ -1,7 +1,6 @@
-// src/contexts/cart-context.tsx
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useMemo } from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
 export interface CartItem {
   id: string;
@@ -27,33 +26,33 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addToCart = (item: CartItem) => {
     setCartItems((prev) => {
-      const found = prev.find((x) => x.id === item.id);
+      const found = prev.find((p) => p.id === item.id);
       if (found) {
-        return prev.map((x) =>
-          x.id === item.id ? { ...x, quantity: x.quantity + item.quantity } : x
+        return prev.map((p) =>
+          p.id === item.id ? { ...p, quantity: p.quantity + item.quantity } : p
         );
       }
-      return [...prev, { ...item }];
+      return [...prev, item];
     });
   };
 
   const updateQuantity = (id: string, quantity: number) => {
     setCartItems((prev) =>
-      prev.map((x) => (x.id === id ? { ...x, quantity } : x))
+      prev.map((p) => (p.id === id ? { ...p, quantity } : p))
     );
   };
 
   const removeFromCart = (id: string) => {
-    setCartItems((prev) => prev.filter((x) => x.id !== id));
+    setCartItems((prev) => prev.filter((p) => p.id !== id));
   };
 
   const clearCart = () => {
     setCartItems([]);
   };
 
-  const getCartTotal = useMemo(() => {
-    return () => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  }, [cartItems]);
+  const getCartTotal = () => {
+    return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  };
 
   return (
     <CartContext.Provider
