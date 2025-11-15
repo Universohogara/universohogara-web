@@ -1,15 +1,20 @@
-import React from 'react'; // <--- ¡ASEGURAMOS LA IMPORTACIÓN DE REACT!
+import React from 'react';
+import { Metadata } from 'next'; // Importamos el tipo Metadata
 
-// Este Layout es una envoltura para la ruta '/premium'.
-// Usamos una etiqueta <section> para asegurar que Next.js lo reconozca
-// como un componente estructural válido que hereda del layout raíz.
+// 1. Agregamos metadatos para forzar al compilador a procesar este layout
+export const metadata: Metadata = {
+  title: 'Universo Hogara - Premium',
+  description: 'Contenido exclusivo para suscriptores.',
+};
+
+// 2. El componente se mantiene simple
 export default function PremiumLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <section className="bg-white min-h-screen">
       {children}
     </section>
   );
